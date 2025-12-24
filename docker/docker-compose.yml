@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: book_inventory_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+
+  server:
+    build:
+      context: ../server
+      dockerfile: ../docker/Dockerfile.server
+    container_name: book_inventory_server
+    ports:
+      - "5000:3000"
+    environment:
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongodb:27017/book-inventory
+    depends_on:
+      - mongodb
+    volumes:
+      - ../server:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: ../client
+      dockerfile: ../docker/Dockerfile.client
+    container_name: book_inventory_client
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:5000/api
+    depends_on:
+      - server
+    volumes:
+      - ../client:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
