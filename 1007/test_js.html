@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 測試</title>
+  <style>
+    body {
+      font-family: "微軟正黑體", Arial, sans-serif;
+      padding: 40px;
+      background-color: #f0f0f0;
+    }
+    #myButton {
+      background-color: #3498db;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #myButton:hover {
+      background-color: #2980b9;
+    }
+    #message {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Console 測試</h1>
+  <input type="text" id="nameInput" placeholder="輸入你的名字">
+  <button id="myButton">點我測試</button>
+  <div id="message">這裡會顯示訊息</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('myButton');
+      const messageDiv = document.getElementById('message');
+      const nameInput = document.getElementById('nameInput');
+
+      button.addEventListener('click', () => {
+        const name = nameInput.value.trim();
+        if (name) {
+          messageDiv.textContent = `你好，${name}`;
+        } else {
+          messageDiv.textContent = '請先輸入';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

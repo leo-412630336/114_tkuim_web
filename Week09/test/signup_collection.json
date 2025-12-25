@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "4424e673-1647-440b-b1a1-5eb2c82b0a99",
+		"name": "New Collection",
+		"description": "Week09 Signup API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50115914",
+		"_collection_link": "https://leo-412630336-1561181.postman.co/workspace/a9392331-a906-4fed-8618-dcd82534a1e5/collection/50115914-4424e673-1647-440b-b1a1-5eb2c82b0a99?action=share&source=collection_link&creator=50115914"
+	},
+	"item": [
+		{
+			"name": "Week09 Signup API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"小明\",\n  \"email\": \"test@example.com\",\n  \"phone\": \"0912345678\",\n  \"password\": \"abcd1234\",\n  \"confirmPassword\": \"abcd1234\",\n  \"interests\": [\"運動\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

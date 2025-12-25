@@ -1,0 +1,17 @@
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "重複測試同學",
+  "email": "duplicate@example.com",
+  "phone": "0911111111"
+}
+
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "重複測試同學 2",
+  "email": "duplicate@example.com",
+  "phone": "0922222222"
+}
